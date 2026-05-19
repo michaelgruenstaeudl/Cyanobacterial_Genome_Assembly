@@ -21,11 +21,13 @@ bactopia \
   --hybrid \
   --genome_size 4600000 \
   --coverage 0 \
+  --use_bbmap \
+  --phix /homes/mgruenstaeudl/references/phix174.fasta \
+  --phix_k 31 \
   --maq 20 \
   --minlength 75 \
   --trimq 15 \
   --min_contig_len 500 \
   --min_contig_cov 2 \
   --unicycler_mode conservative \
-  --phix /homes/mgruenstaeudl/references/phix174.fasta \
   --nfconfig /homes/mgruenstaeudl/hybrid_assembly/Limnothrix_denovo_assembly.conf
