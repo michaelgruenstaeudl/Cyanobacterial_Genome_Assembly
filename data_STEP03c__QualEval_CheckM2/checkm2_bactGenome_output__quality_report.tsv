@@ -1,0 +1,2 @@
+Name	Completeness	Contamination	Completeness_Model_Used	Translation_Table_Used	Coding_Density	Contig_N50	Average_Gene_Length	Genome_Size	GC_Content	Total_Coding_Sequences	Total_Contigs	Max_Contig_Length	Additional_Notes
+FinalAssembly_bactGenome_corrected	99.99	0.47	Neural Network (Specific Model)	11	0.814	4536413	335.8689730318714	4536413	0.55	3671	1	4536413	None
