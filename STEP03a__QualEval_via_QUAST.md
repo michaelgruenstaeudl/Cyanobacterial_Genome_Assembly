@@ -13,23 +13,33 @@ cd quast
 
 #### Run QUAST on both assemblies
 ```bash
+# ----------------------------------------
+# Input and output files
+# ----------------------------------------
 GENOME="bactGenome"
 #GENOME="plasmid"
 
-quast.py FinalAssembly_${GENOME}_corrected.fasta \
-  -o ${GENOME}_Illumina_QUAST_report \
-  -t 16 \
-  --k-mer-stats \
-  --report-all-metrics \
-  --pe1 Limnothrix_Unicycler_R1.fastq.gz \
-  --pe2 Limnothrix_Unicycler_R2.fastq.gz \
-  --bam ${GENOME}.illumina.sorted.bam
+ILLUM_R1=~/HorseThiefReservoir_Fall2024/02b_backmapping/Limnothrix_Unicycler_R1.fastq.gz
+ILLUM_R2=~/HorseThiefReservoir_Fall2024/02b_backmapping/Limnothrix_Unicycler_R2.fastq.gz
+ONT_READS=~/HorseThiefReservoir_Fall2024/02b_backmapping/Limnothrix_Unicycler_ONT.fastq.gz
+ASM=~/HorseThiefReservoir_Fall2024/02b_backmapping/FinalAssembly_${GENOME}_corrected.fasta
+ILLUM_BACKM=~/HorseThiefReservoir_Fall2024/02b_backmapping/${GENOME}.illumina.sorted.bam
+ONT_BACKM=~/HorseThiefReservoir_Fall2024/02b_backmapping/${GENOME}.ont.sorted.bam
 
-quast.py FinalAssembly_${GENOME}_corrected.fasta \
-  -o ${GENOME}_Nanopore_QUAST_report \
-  -t 16 \
+python3 quast/quast.py $ASM \
+  -o ${GENOME}_Illumina_QUAST_report \
+  -t 8 \
   --k-mer-stats \
   --report-all-metrics \
-  --nanopore Limnothrix_Unicycler_ONT.fastq.gz \
-  --bam ${GENOME}.ont.sorted.bam
+  --pe1 $ILLUM_R1 \
+  --pe2 $ILLUM_R2 \
+  --bam $ILLUM_BACKM
+
+python3 quast/quast.py $ASM \
+  -o ${GENOME}_Nanopore_QUAST_report \
+  -t 8 \
+  --k-mer-stats \
+  --report-all-metrics \
+  --nanopore $ONT_READS \
+  --bam $ONT_BACKM
 ```
