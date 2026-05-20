@@ -23,15 +23,15 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 ---
 
-### 02. Contig Processing
-- [Contig circularization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP02__Circularization_of_contig.md)
+### 02. Contig circularization and Backmapping
+- [Contig circularization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP02__Circularization_of_contig_and_backmapping.md)
 
 ---
 
 ### 03. Assembly Quality Assessment
-- [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03a__Quality_eval_via_QUAST.md)
+- [Quality evaluation via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03a__QualEval_via_QUAST.md)
 
-- [Inference of Merqury QV values](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03b__Merqury_QV.md)
+- [Quality evaluation via Merqury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03b__QualEval_via_Merqury.md)
 
 
 ###### What the .qv file format means
