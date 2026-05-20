@@ -16,6 +16,8 @@ cd quast
 # ----------------------------------------
 # Input and output files
 # ----------------------------------------
+python3 -m pip install matplotlib
+
 GENOME="bactGenome"
 #GENOME="plasmid"
 
@@ -26,6 +28,9 @@ ASM=~/HorseThiefReservoir_Fall2024/02b_backmapping/FinalAssembly_${GENOME}_corre
 ILLUM_BACKM=~/HorseThiefReservoir_Fall2024/02b_backmapping/${GENOME}.illumina.sorted.bam
 ONT_BACKM=~/HorseThiefReservoir_Fall2024/02b_backmapping/${GENOME}.ont.sorted.bam
 
+# ----------------------------------------
+# Run analyses
+# ----------------------------------------
 python3 quast/quast.py $ASM \
   -o ${GENOME}_Illumina_QUAST_report \
   -t 8 \
