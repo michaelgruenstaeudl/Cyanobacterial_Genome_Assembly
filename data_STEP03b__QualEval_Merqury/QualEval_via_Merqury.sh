@@ -4,6 +4,9 @@ set -euo pipefail
 eval "$(/homes/mgruenstaeudl/miniconda3/bin/conda shell.bash hook)"
 conda activate merqury
 
+module load BWA
+module load SAMtools
+
 # ----------------------------------------
 # Input and output files
 # ----------------------------------------
@@ -25,43 +28,97 @@ MEMORY=8
 mkdir -p "$OUT"
 cd "$OUT"
 
-mkdir -p logs
+mkdir -p logs mapped_reads
 PREFIX="$(basename "$OUT")_$(date +%Y-%m-%d)"
 
 # Required by several Merqury installations
 export MERQURY="${MERQURY:-$CONDA_PREFIX/share/merqury}"
 
-# STEP 1. Build Illumina read k-mer database
+# ----------------------------------------
+# STEP 1. Extract reads that map to the selected genome
+# ----------------------------------------
+
+# Index assembly for BWA if needed
+if [[ ! -f "${ASM}.bwt" ]]; then
+  bwa index "$ASM" > logs/00_bwa_index.log 2>&1
+fi
+
+# Map Illumina reads to the selected assembly
+bwa mem -t "$THREADS" \
+  "$ASM" \
+  "$R1" \
+  "$R2" \
+  2> logs/01_bwa_mem.log | \
+samtools view -@ "$THREADS" -b -F 4 -o mapped_reads/${GENOME}.mapped.bam -
+
+# Sort and index mapped BAM
+samtools sort -@ "$THREADS" \
+  -o mapped_reads/${GENOME}.mapped.sorted.bam \
+  mapped_reads/${GENOME}.mapped.bam \
+  > logs/02_samtools_sort.log 2>&1
+
+samtools index \
+  mapped_reads/${GENOME}.mapped.sorted.bam \
+  > logs/03_samtools_index.log 2>&1
+
+# Convert mapped alignments back to paired FASTQ files
+samtools fastq -@ "$THREADS" \
+  -1 mapped_reads/${GENOME}.mapped.R1.fastq.gz \
+  -2 mapped_reads/${GENOME}.mapped.R2.fastq.gz \
+  -0 /dev/null \
+  -s /dev/null \
+  -n \
+  mapped_reads/${GENOME}.mapped.sorted.bam \
+  > logs/04_samtools_fastq.log 2>&1
+
+MAPPED_R1=mapped_reads/${GENOME}.mapped.R1.fastq.gz
+MAPPED_R2=mapped_reads/${GENOME}.mapped.R2.fastq.gz
+
+# ----------------------------------------
+# STEP 2. Build Illumina read k-mer database
+# ----------------------------------------
 meryl count \
   k="$K" \
   threads="$THREADS" \
   memory="$MEMORY" \
-  "$R1" "$R2" \
+  "$MAPPED_R1" "$MAPPED_R2" \
   output "${PREFIX}.reads.meryl" \
-  > logs/01_meryl_reads.log 2>&1
+  > logs/05_meryl_reads.log 2>&1
 
-# STEP 2. Run full Merqury workflow
-# Produces QV, error rate, completeness, spectra-cn plots, spectra-asm plots,
-# histograms, and assembly/read k-mer comparison outputs.
+# ----------------------------------------
+# STEP 3. Run full Merqury workflow
+# ----------------------------------------
 "$MERQURY/merqury.sh" \
   "${PREFIX}.reads.meryl" \
   "$ASM" \
   "$PREFIX" \
-  > logs/02_merqury_full.log 2>&1
+  > logs/06_merqury_full.log 2>&1
 
-# STEP 3. Also run qv.sh explicitly for a compact QV table
+# ----------------------------------------
+# STEP 4. Also run qv.sh explicitly for a compact QV table
+# ----------------------------------------
 "$MERQURY/eval/qv.sh" \
   "${PREFIX}.reads.meryl" \
   "$ASM" \
   "${PREFIX}.qv_only" \
-  > logs/03_qv_only.log 2>&1
+  > logs/07_qv_only.log 2>&1
 
-# STEP 4. Collect the most useful tabular outputs
+# ----------------------------------------
+# STEP 5. Collect the most useful tabular outputs
+# ----------------------------------------
 {
   echo "Merqury report: $PREFIX"
   echo "Genome: $GENOME"
   echo "Assembly: $ASM"
+  echo "Original R1: $R1"
+  echo "Original R2: $R2"
+  echo "Mapped R1: $MAPPED_R1"
+  echo "Mapped R2: $MAPPED_R2"
   echo "Read k-mer size: $K"
+  echo
+
+  echo "=== Mapping summary ==="
+  samtools flagstat mapped_reads/${GENOME}.mapped.sorted.bam
   echo
 
   echo "=== Consensus QV / error rate ==="
