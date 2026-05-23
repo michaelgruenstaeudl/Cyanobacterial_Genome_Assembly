@@ -84,10 +84,21 @@ conda activate bactopia
 # Good for high-coverage high-quality long-reads.
 
 bactopia \
-   --sample HorseThief_Dragonflye \
-   --r1 Illumina_filt_R1_paired.fastq.gz \
-   --r2 Illumina_filt_R2_paired.fastq.gz \
-   --ont Nanopore_filtered.q75.fastq.gz \
-   --short_polish
-   --phix /homes/mgruenstaeudl/references/phix174.fasta   # Removal of any PhiX spike-ins
+  --sample Limnothrix_Unicycler \
+  --r1 ${INPATH}/Illumina_filt_R1_paired.fastq.gz \
+  --r2 ${INPATH}/Illumina_filt_R2_paired.fastq.gz \
+  --ont ${INPATH}/Nanopore_filtered.q75.fastq.gz \
+  --hybrid \
+  --genome_size 4600000 \
+  --coverage 0 \
+  --use_bbmap \
+  --phix /homes/mgruenstaeudl/references/phix174.fasta \
+  --phix_k 31 \
+  --maq 20 \
+  --minlength 75 \
+  --trimq 15 \
+  --min_contig_len 500 \
+  --min_contig_cov 2 \
+  --unicycler_mode conservative \
+  --nfconfig /homes/mgruenstaeudl/hybrid_assembly/Limnothrix_denovo_assembly.conf
 ```
