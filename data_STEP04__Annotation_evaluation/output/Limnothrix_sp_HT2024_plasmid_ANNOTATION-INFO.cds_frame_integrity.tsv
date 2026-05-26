@@ -1,0 +1,7 @@
+replicon_id	locus_tag	gene	product	feature_start	feature_end	strand	cds_length_bp	transl_table	is_partial	is_pseudogene	length_mod_3	start_codon	stop_codon	has_valid_start	has_valid_stop	internal_stop_count	ambiguous_codon_count	translation_qualifier_present	translation_matches_qualifier	integrity_status	issues
+Limnothrix	AC2IAX_p000001		protein rep	178	957	1	780	11	False	False	0	ATG	TGA	True	True	0	0	True	True	intact	
+Limnothrix	AC2IAX_p000002		hypothetical protein	985	1941	1	957	11	False	False	0	ATG	TAG	True	True	0	0	True	True	intact	
+Limnothrix	AC2IAX_p000003		helix-turn-helix domain-containing protein	1984	2556	1	573	11	False	False	0	ATG	TAG	True	True	0	0	True	True	intact	
+Limnothrix	AC2IAX_p000004		KilA-N domain-containing protein	2708	3199	1	492	11	False	False	0	ATG	TGA	True	True	0	0	True	True	intact	
+Limnothrix	AC2IAX_p000005		hypothetical protein	3442	3699	-1	258	11	False	False	0	ATG	TAG	True	True	0	0	True	True	intact	
+Limnothrix	AC2IAX_p000006		YegP family protein	3711	3881	1	171	11	False	False	0	ATG	TGA	True	True	0	0	True	True	intact	

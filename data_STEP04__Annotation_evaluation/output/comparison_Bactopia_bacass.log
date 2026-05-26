@@ -1,0 +1,27 @@
+Comparison Summary
+------------------
+Eligible genes in Genome 1: 3666
+Eligible genes in Genome 2: 2662
+Warnings in Genome 1: 43
+Warnings in Genome 2: 0
+Matched genes (same identifier and within 500 bp): 0
+Unmatched eligible genes from Genome 1: 3666
+Unmatched eligible genes from Genome 2: 2662
+
+Warnings for Genome 1: 43 gene feature(s) lack an identical CDS, tRNA, or rRNA annotation.
+  - Limnothrix | locus_tag=AC2IAX_000011 | 12339-12597 | strand=-1
+  - Limnothrix | locus_tag=AC2IAX_000189 | 232198-232696 | strand=1
+  - Limnothrix | locus_tag=AC2IAX_000237 | 275042-275120 | strand=1
+  - Limnothrix | locus_tag=AC2IAX_000397 | 465544-465757 | strand=1
+  - Limnothrix | locus_tag=AC2IAX_000398 | 465781-466392 | strand=-1
+  - Limnothrix | locus_tag=AC2IAX_000426 | 502946-503609 | strand=-1
+  - Limnothrix | locus_tag=AC2IAX_000441 | 523996-524734 | strand=1
+  - Limnothrix | locus_tag=AC2IAX_000457 | 543127-543385 | strand=1
+  - Limnothrix | locus_tag=AC2IAX_000588 | 693834-694413 | strand=-1
+  - Limnothrix | locus_tag=AC2IAX_000594 | 698383-698990 | strand=-1
+  ... 33 additional warning(s) not shown
+
+Warnings for Genome 2: 0 gene feature(s) lack an identical CDS, tRNA, or rRNA annotation.
+
+Detailed comparison table written to: gene_comparison_table.csv
+Warning table written to: gene_annotation_warnings.csv
