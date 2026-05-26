@@ -143,7 +143,7 @@ grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/l
 
 
 
-- Run PAGP to generate PAGP annotations
+- Run PGAP to generate PAGP annotations
 
 ##### Run on plasmid sequence
 ```bash
