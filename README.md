@@ -147,7 +147,7 @@ grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/l
 
 <div style="display:flex; justify-content:center; gap:2%;">
     <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP06__Coverage_Viz_Circleator/output/chromosome.circleator.final.svg" style="width:48%;">
-    <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP06__Coverage_Viz_Circleator/output/plasmid.circleator.final.svg" style="width:48%;">
+    <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP06__Coverage_Viz_Circleator/output/plasmid.circleator.final.svg" style="width:4.8%;">
 </div>
 
 ---
