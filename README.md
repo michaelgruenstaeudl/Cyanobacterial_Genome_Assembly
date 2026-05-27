@@ -134,18 +134,21 @@ grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/l
 ### 05. Gene-Level Visualization
 - [Visualization of gene location via GenoVi](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05__Visualization_via_GenoVi.md)
 
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP05__Visualization_via_GenoVi/Limnothrix_sp_HT2024_plasmid__combined_vertical.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+<div style="display:flex; justify-content:center; gap:2%;">
+    <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP05__Visualization_via_GenoVi/Limnothrix_sp_HT2024_chromosome__combined_vertical.png" style="width:48%;">
+    <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP05__Visualization_via_GenoVi/Limnothrix_sp_HT2024_plasmid__combined_vertical.png" style="width:48%;">
+</div>
 
-###### **TO DO:** Do GenoVi visualization also for plasmid genome
 
 ---
 
 ### 06. Coverage Visualization
 - [Visualization of sequencing coverage via Circleator](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP06__Coverage_Viz_Circleator.md)
 
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP06__Coverage_Viz_Circleator/02_output/FinalAssembly_Bactopia_Circleator_plusLegend.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
-
-###### **TO DO:** Do coverage visualization also for plasmid genome
+<div style="display:flex; justify-content:center; gap:2%;">
+    <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP06__Coverage_Viz_Circleator/output/chromosome.circleator.final.svg" style="width:48%;">
+    <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP06__Coverage_Viz_Circleator/output/plasmid.circleator.final.svg" style="width:48%;">
+</div>
 
 ---
 
