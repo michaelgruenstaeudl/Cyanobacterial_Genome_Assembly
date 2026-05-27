@@ -1,187 +1,133 @@
 ### Visualization of sequencing coverage via Circleator
 
-#### Backmapping of reads to complete genome assembly
-Best done on a HPC cluster, as this step is computationally intensive.
-
-##### Backmapping of Illumina reads
-```bash
-
-MYSAMPLE="FinalAssembly_Bactopia"
-
-REF="${MYSAMPLE}.fasta"
-R1="${MYSAMPLE}_R1_paired.fastq.gz"
-R2="${MYSAMPLE}_R2_paired.fastq.gz"
-THREADS=8
-
-# Loading modules if conducted on HPC cluster
-# module load BWA-MEM2
-# If bwa-mem2 not installed as module, download:
-# curl -L https://github.com/bwa-mem2/bwa-mem2/releases/download/v2.2.1/bwa-mem2-2.2.1_x64-linux.tar.bz2 | tar jxf -
-module load SAMtools
-
-# Checking that required tools available
-command -v bwa-mem2 >/dev/null 2>&1 || { echo "ERROR: bwa-mem2 not found"; exit 1; }
-command -v samtools  >/dev/null 2>&1 || { echo "ERROR: samtools not found"; exit 1; }
-
-# Index reference
-bwa-mem2 index "$REF"
-
-# Map, sort, index
-bwa-mem2 mem -t "$THREADS" \
-  -R "@RG\tID:${MYSAMPLE}\tSM:${MYSAMPLE}\tPL:ILLUMINA" \
-  "$REF" "$R1" "$R2" \
-| samtools sort -@ "$THREADS" -o "${MYSAMPLE}.illumina.backmap.sorted.bam"
-
-samtools index "${MYSAMPLE}.illumina.backmap.sorted.bam"
-
-# Alignment summaries
-samtools flagstat "${MYSAMPLE}.illumina.backmap.sorted.bam" \
-  > "${MYSAMPLE}.illumina.backmap.flagstat.txt"
-
-samtools stats "${MYSAMPLE}.illumina.backmap.sorted.bam" \
-  > "${MYSAMPLE}.illumina.backmap.stats.txt"
-
-# Per-base coverage depth
-samtools depth -a "${MYSAMPLE}.illumina.backmap.sorted.bam" \
-  > "${MYSAMPLE}.illumina.depth.txt"
-
-# Genome-wide average coverage depth
-awk '{sum += $3; count += 1} END {if (count > 0) print sum / count}' \
-  "${MYSAMPLE}.illumina.depth.txt" \
-  > "${MYSAMPLE}.illumina.average_depth.txt"
-
-```
-
-##### Backmapping of ONT reads
-```bash
-
-MYSAMPLE="FinalAssembly_Bactopia"
-
-REF="${MYSAMPLE}.fasta"
-ONT_FASTQ="Nanopore_filtered.q75.fastq.gz"
-THREADS=8
-
-# Define output files
-BAM="${MYSAMPLE}.ont.backmap.sorted.bam"
-DEPTH_TXT="${MYSAMPLE}.ont.depth.txt"
-AVG_TXT="${MYSAMPLE}.ont.average_depth.txt"
-
-# Loading modules if conducted on HPC cluster
-module load minimap2
-module load SAMtools
-
-# Checking that required tools available
-command -v minimap2 >/dev/null 2>&1 || { echo "ERROR: minimap2 not found"; exit 1; }
-command -v samtools  >/dev/null 2>&1 || { echo "ERROR: samtools not found"; exit 1; }
-
-# Index the reference FASTA (useful for downstream tools)
-samtools faidx "$REF"
-
-# Map ONT reads to the reference and sort alignments
-minimap2 -t "$THREADS" -ax map-ont "$REF" "$ONT_FASTQ" \
-  | samtools sort -@ "$THREADS" -o "$BAM"
-
-# Index the sorted BAM file
-samtools index "$BAM"
-
-# Basic alignment quality control statistics
-samtools flagstat "$BAM" > "${MYSAMPLE}.ont.flagstat.txt"
-samtools stats "$BAM"    > "${MYSAMPLE}.ont.stats.txt"
-
-# Calculate per-base coverage depth
-samtools depth -a "$BAM" > "$DEPTH_TXT"
-
-# Calculate genome-wide average coverage depth
-awk '{sum+=$3; n++} END {if(n>0) printf "%.6f\n", sum/n; else print "NA"}' "$DEPTH_TXT" > "$AVG_TXT"
-
-```
-
-#### Visualization of coverage across circular genome
-
 ##### Installation of Circleator and dependecies
 
 ###### On Debian
 ```bash
-# Dependencies
-sudo apt install perl bioperl libbatik-java vcftools samtools
-
-# Additional perl modules
-sudo cpan
-install CPAN
-reload cpan
-install JSON
-install Log::Log4perl
-install SVG
-install Text::CSV
-install Bio::Perl
-install Bio::FeatureIO::gff
-install Module::Build
-exit
-
-# Installing Circleator systemwide
+# Install dependencies via conda
+conda activate base
+conda install -n base --solver=libmamba \
+-c conda-forge -c bioconda \
+perl \
+perl-app-cpanminus \
+perl-bioperl-core \
+perl-bioperl \
+perl-bio-featureio \
+perl-clone \
+perl-json \
+perl-log-log4perl \
+perl-svg \
+perl-text-csv \
+perl-module-build \
+perl-cache-cache \
+perl-digest-sha1 \
+vcftools \
+samtools
+# Install remaining BioPerl modules if necessary
+cpanm --force Bio::Perl
+# Install Circleator
 curl -L -o Circleator-1.0.2.tar.gz \
   https://github.com/jonathancrabtree/Circleator/archive/refs/tags/1.0.2.tar.gz
-
 tar xzvf Circleator-1.0.2.tar.gz
 cd Circleator-1.0.2
-
+which perl
 perl Build.PL
 ./Build
 ./Build test
-sudo ./Build install
+./Build install
 ```
+
+---
+
+##### Correction of LOCUS name
+
+Before running Circleator, ensure the GenBank LOCUS name and BAM sequence name are short and identical.
+If `samtools` prints `libtinfow`/`libncursesw` "no version information available", that warning is usually harmless.
+
+```bash
+# Build Circleator-ready GenBank and BAM files (skip any missing inputs)
+IN_DIR="backmapping_results"
+GB_DIR="input"
+
+for GENOME in chromosome plasmid; do
+  SHORT_ID="Limnothrix"
+
+  IN_GB="${GB_DIR}/Limnothrix_sp_HT2024_${GENOME}.gb"
+  if [ ! -f "$IN_GB" ]; then
+    echo "SKIP: $IN_GB not found"
+    continue
+  fi
+
+  cp "$IN_GB" "${GENOME}.circleator.gb"
+  sed -i -E "s/^(LOCUS[[:space:]]+)[^[:space:]]+/\1${SHORT_ID}/" "${GENOME}.circleator.gb"
+
+  for PLATFORM in illumina ont; do
+    IN_BAM="${IN_DIR}/${GENOME}.${PLATFORM}.sorted.bam"
+    if [ ! -f "$IN_BAM" ]; then
+      echo "SKIP: $IN_BAM not found"
+      continue
+    fi
+
+    samtools view -H "$IN_BAM" \
+    | awk -v sid="$SHORT_ID" 'BEGIN{done=0} /^@SQ/ && !done {sub(/SN:[^ \t]+/,"SN:" sid); done=1} {print}' \
+    > "${GENOME}.${PLATFORM}.header.sam"
+
+    samtools reheader "${GENOME}.${PLATFORM}.header.sam" "$IN_BAM" \
+    > "${GENOME}.${PLATFORM}.circleator.bam"
+
+    samtools index "${GENOME}.${PLATFORM}.circleator.bam"
+  done
+done
+
+rm -f chromosome.illumina.header.sam chromosome.ont.header.sam
+rm -f plasmid.illumina.header.sam plasmid.ont.header.sam
+```
+
+---
 
 ##### Configuration file for Circleator
-Circleator draws figures based on the information in its configuration file
+Circleator draws figures based on the information in its configuration file.
+The following script creates one config file per genome with both Illumina and ONT coverage tracks.
 
-```
-## =========================
-## Circleator config: 4.5 Mb bacterial genome
-## =========================
-## Color scheme:
-## Genes              = #4daf4a (green)
-## rRNAs              = #e41a1c (red)
-## Illumina coverage  = #3aa0d5 (blue)
-## Inner coverage ring= #984ea3 (violet)
-## GC content         = #ff8c1a / #cc6f00 (orange)
-## Outer frame        = #303030 / #000000 (dark gray / black)
+```bash
+for GENOME in chromosome plasmid; do
+  SHORT_ID="Limnothrix"
 
-## OUTERMOST REGION (GC + coordinates)
-## GC content (orange)
-%GC0-100 opacity=0.8,heightf=0.06,innerf=1.0,window-size=2000,no-labels=1,color1=#ff8c1a,color2=#cc6f00
-## Coordinate ticks and labels
-coords innerf=1.0,label-interval=250000,tick-interval=50000,label-units=kb,label-precision=0
-## Thinner dark gray outer frame (was 0.022)
-new r8 rectangle 0.012 color1=#303030,color2=#000000,stroke-width=2
-new n1 none 0.004
+  [ -f "${GENOME}.illumina.circleator.bam" ] || continue
+  [ -f "${GENOME}.ont.circleator.bam" ] || continue
 
-## FEATURE TRACKS (no tRNAs because these would be too thin to be seen)
+  cat > "${GENOME}.circleator.conf" <<EOF
+## Circleator config with both coverage tracks
 small-cgap
-## Forward strand
-genes-fwd  heightf=0.05,color1=#4daf4a
-rRNAs-fwd  heightf=0.05,innerf=same,color1=#e41a1c
-tiny-cgap
-## Reverse strand
-genes-rev  heightf=0.05,color1=#4daf4a
-rRNAs-rev  heightf=0.05,innerf=same,color1=#e41a1c
+## Inner coverage ring (Illumina, red)
+new cov_illumina graph 0.14 graph-function=BAMCoverage,bam-file=${GENOME}.illumina.circleator.bam,bam-seqid=${SHORT_ID},graph-min=0,graph-max=data_max,window-size=5000,heightf=0.25,opacity=0.85,color1=#e41a1c
 
-## COVERAGE TRACKS
 small-cgap
-## Outer coverage (Illumina, blue)
-new cov_illumina graph 0.14 graph-function=BAMCoverage,bam-file=FinalAssembly_Bactopia.illumina.backmap.sorted.bam,bam-seqid=FinalAssembly_Bactopia,graph-min=0,graph-max=data_max,window-size=5000,heightf=0.25,opacity=0.85,color1=#3aa0d5
-## Inner coverage (ONT, violet)
-small-cgap
-new cov_ont graph 0.14 graph-function=BAMCoverage,bam-file=FinalAssembly_Bactopia.ont.backmap.sorted.bam,bam-seqid=FinalAssembly_Bactopia,graph-min=0,graph-max=data_max,window-size=10000,heightf=0.25,opacity=0.85,color1=#984ea3
+## Inner coverage ring (ONT, blue)
+new cov_ont graph 0.14 graph-function=BAMCoverage,bam-file=${GENOME}.ont.circleator.bam,bam-seqid=${SHORT_ID},graph-min=0,graph-max=data_max,window-size=10000,heightf=0.25,opacity=0.85,color1=#3aa0d5
+EOF
+done
 ```
 
 ##### Running Circleator
-Note: Make sure that the genome name in the GenBank flatfile (i.e., second column of lines LOCUS and ACCESSION) are identical to the genome name of the BAM file (i.e., find via: `samtools view -H FinalAssembly_Bactopia.backmap.sorted.bam | grep '^@SQ' | head
-samtools idxstats FinalAssembly_Bactopia.backmap.sorted.bam`).
-
 ```bash
-MYSAMPLE=FinalAssembly_Bactopia
-circleator --data=${MYSAMPLE}_sameHeaderAsBAM.gbk --config=${MYSAMPLE}.circleator.conf > ${MYSAMPLE}.svg
+for GENOME in chromosome plasmid; do
+  SHORT_ID="Limnothrix"
+  [ -f "${GENOME}.circleator.gb" ] || continue
+  [ -f "${GENOME}.circleator.conf" ] || continue
+
+  N1=$(samtools view -c -F 4 "${GENOME}.illumina.circleator.bam" "$SHORT_ID" 2>/dev/null || echo 0)
+  N2=$(samtools view -c -F 4 "${GENOME}.ont.circleator.bam" "$SHORT_ID" 2>/dev/null || echo 0)
+
+  if [ "$N1" -gt 0 ] || [ "$N2" -gt 0 ]; then
+    circleator --data="${GENOME}.circleator.gb" --config="${GENOME}.circleator.conf" > "${GENOME}.circleator.svg"
+  else
+    echo "SKIP: ${GENOME} has no mapped reads on $SHORT_ID"
+  fi
+done
 ```
+
+---
 
 ##### Correcting the raw SVG
 Circleator produces an SVG in the old SVG 1.0 format that is not rendered correctly in today's SVG editors. Hence, the output of Circleator must be rasterized first using [Apache Batik](https://xmlgraphics.apache.org/batik/download.html).
@@ -193,18 +139,100 @@ For that, download the [Batik binary](https://www.apache.org/dyn/closer.cgi?file
 export BATIK_HOME="$PWD/batik-1.19"
 ls "$BATIK_HOME"/lib | head
 
-# Convert SVG to PDF using Batik with full classpath
-java -cp "$BATIK_HOME/lib/*:$BATIK_HOME/extensions/*:$BATIK_HOME/batik-rasterizer-1.19.jar" \
-  org.apache.batik.apps.rasterizer.Main \
-  -m application/pdf \
-  -d FinalAssembly_Bactopia.pdf \
-  FinalAssembly_Bactopia.svg
+# Convert all Circleator SVG outputs to PDF
+for svg in *circleator.svg; do
+  [ -e "$svg" ] || continue
+  java -cp "$BATIK_HOME/lib/*:$BATIK_HOME/extensions/*:$BATIK_HOME/batik-rasterizer-1.19.jar" \
+    org.apache.batik.apps.rasterizer.Main \
+    -m application/pdf \
+    -scriptSecurityOff \
+    -d "${svg%.svg}.pdf" \
+    "$svg"
+done
 ```
+
+---
 
 ##### Generate a color legend using Python
 Circleator does not produce any legends for the figures it produces. Hence, the legends must be generated separately by the user.
 
 ```bash
 pip install svgwrite
-python3 Circleator_legend_maker.py
+python3 legend/Circleator_legend_maker.py
 ```
+
+---
+
+##### Combine figure with legend
+
+```bash
+# Convert Batik PDF outputs back to SVG (requires pdftocairo from poppler-utils)
+# Debian/Ubuntu: sudo apt install -y poppler-utils
+for GENOME in chromosome plasmid; do
+  [ -f "${GENOME}.circleator.pdf" ] || continue
+  pdftocairo -svg "${GENOME}.circleator.pdf" "${GENOME}.circleator.frompdf.svg"
+done
+
+# Combine each figure SVG with the legend SVG into one final SVG
+pip install svgutils
+python3 - <<'PY'
+from pathlib import Path
+import re
+from svgutils.transform import fromfile, SVGFigure
+
+def px(value: str) -> float:
+  m = re.match(r"\s*([0-9.]+)", value or "0")
+  return float(m.group(1)) if m else 0.0
+
+legend_candidates = [Path("circleator_legend.svg"), Path("legend/circleator_legend.svg")]
+legend_path = next((p for p in legend_candidates if p.exists()), None)
+if legend_path is None:
+  raise SystemExit("Legend SVG not found (expected circleator_legend.svg or legend/circleator_legend.svg)")
+
+for genome in ("chromosome", "plasmid"):
+  fig_path = Path(f"{genome}.circleator.frompdf.svg")
+  if not fig_path.exists():
+    print(f"SKIP: {fig_path} not found")
+    continue
+
+  fig = fromfile(str(fig_path))
+  leg = fromfile(str(legend_path))
+  w1, h1 = map(px, fig.get_size())
+  w2, h2 = map(px, leg.get_size())
+
+  gap = 20
+  out_w = w1 + gap + w2
+  out_h = max(h1, h2)
+
+  out = SVGFigure(f"{out_w}px", f"{out_h}px")
+  fig_root = fig.getroot()
+  leg_root = leg.getroot()
+  fig_root.moveto(0, (out_h - h1) / 2)
+  leg_root.moveto(w1 + gap, (out_h - h2) / 2)
+  out.append([fig_root, leg_root])
+
+  out_path = f"{genome}.circleator.final.svg"
+  out.save(out_path)
+  fig_path.unlink()
+  print(f"Wrote {out_path}")
+PY
+```
+
+---
+
+##### Hygiene cleanup
+
+Remove intermediate files produced during this workflow, while keeping SVG outputs and Circleator config files.
+
+```bash
+for GENOME in chromosome plasmid; do
+  rm -f "${GENOME}.illumina.header.sam" "${GENOME}.ont.header.sam"
+  rm -f "${GENOME}.illumina.circleator.bam" "${GENOME}.ont.circleator.bam"
+  rm -f "${GENOME}.illumina.circleator.bam.bai" "${GENOME}.ont.circleator.bam.bai"
+  rm -f "${GENOME}.circleator.gb" "${GENOME}.circleator.pdf" "${GENOME}.circleator.frompdf.svg"
+done
+
+# Optional: remove downloaded Batik bundle if no longer needed
+# rm -rf batik-1.19 Circleator-1.0.2 Circleator-1.0.2.tar.gz
+```
+

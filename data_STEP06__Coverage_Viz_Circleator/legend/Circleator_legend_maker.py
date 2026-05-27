@@ -10,13 +10,10 @@ Requires: svgwrite
 
 import svgwrite
 
-# Colors (hex) - updated for the current Circleator config
+# Colors (hex) for the current coverage-only Circleator config
 COLORS = {
-    "Genes": "#4daf4a",                 # green
-    "rRNAs": "#e41a1c",                 # red
-    "GC content": "#ff8c1a",            # orange
-    "Illumina Coverage": "#3aa0d5",     # blue
-    "ONT Coverage": "#984ea3",          # violet
+    "Illumina Coverage": "#e41a1c",  # red
+    "ONT Coverage": "#3aa0d5",       # blue
 }
 
 OUT_SVG = "circleator_legend.svg"
@@ -31,7 +28,7 @@ font_family = "Arial"
 
 # Compute canvas size
 rows = list(COLORS.keys())
-width = 320
+width = 360
 height = padding * 2 + len(rows) * swatch + (len(rows) - 1) * row_gap
 
 dwg = svgwrite.Drawing(OUT_SVG, size=(f"{width}px", f"{height}px"))
