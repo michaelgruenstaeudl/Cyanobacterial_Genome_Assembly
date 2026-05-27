@@ -128,18 +128,15 @@ grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/l
 | 5        | Query UniProt cyanobacteria by gene if `product` is missing                                                                                                                                       |
 | 6        | Skip logging and UniProt lookup for annotations whose `standard_name` is `hypothetical protein CDS` or `hypothetical protein gene`, but still standardize their product to `hypothetical protein` |
 | 7        | Record conflicts and unresolved cases in the report                                                                                                                                               |
+
 ---
 
 ### 05. Gene-Level Visualization
-- [Visualization of gene location via GenoVi](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05a__Visualization_via_GenoVi.md)
+- [Visualization of gene location via GenoVi](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05__Visualization_via_GenoVi.md)
 
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP05a__Visualization_via_GenoVi/FinalAssembly_Bactopia__output_from_GenoVi.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP05__Visualization_via_GenoVi/Limnothrix_sp_HT2024_plasmid__combined_vertical.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
 ###### **TO DO:** Do GenoVi visualization also for plasmid genome
-
-- [Barchart-style gene tally compatible with GenoVi visualization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05b__Gene_tally_of_GenoVi.md)
-
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP05b__Gene_tally_of_GenoVi/genovi_COG_Classification_COG_barplot.png" style="display:block; margin-left:auto; margin-right:auto; width:100%;">
 
 ---
 

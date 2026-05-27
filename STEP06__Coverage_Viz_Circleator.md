@@ -235,4 +235,3 @@ done
 # Optional: remove downloaded Batik bundle if no longer needed
 # rm -rf batik-1.19 Circleator-1.0.2 Circleator-1.0.2.tar.gz
 ```
-
