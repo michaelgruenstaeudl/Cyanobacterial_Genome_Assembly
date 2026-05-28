@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg viewBox="0 0 3000 4000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
-<rect x="-1000" y="-1000" width="5000px" height="5000px" style="fill:none;"/><g transform="translate(0.0,0) scale(1.0)">
+<svg width="3000px" height="3000px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="bg">
-<rect x="-1000" y="-1000" width="5000px" height="5000px" style="fill:none;"/>
+<rect x="0" y="0" width="3000px" height="3000px" style="fill:none;"/>
 </g>
 <g id="ideograms">
 <g id="highlighttrack_0">
@@ -38,7 +36,7 @@
 <path d="M1681.464,354.282 A1160.000,1160.000 40.000 1,1 1335.696,351.695 L1330.030,312.098 A1200.000,1200.000 0.000 1,0 1687.721,314.774 Z" style="stroke-width:2.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:rgb(0,0,0);" />
 <path d="M1681.464,354.282 A1160.000,1160.000 40.000 1,1 1335.696,351.695 L1330.030,312.098 A1200.000,1200.000 0.000 1,0 1687.721,314.774 Z" style="stroke-linecap:round;fill:rgb(255,255,255);" />
 <line x1='1687.7' y1='314.8' x2='1689.3' y2='304.9' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="1698.5" y="301.3" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(279.0,1698.5,301.3)" >0 Mb</text>
+<text x="1698.5" y="301.3" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(279.0,1698.5,301.3)" >0 Mb</text>
 <path d="M1681.464,354.282 A1160.000,1160.000 40.000 1,1 1335.696,351.695 L1330.030,312.098 A1200.000,1200.000 0.000 1,0 1687.721,314.774 Z" style="stroke-width:2.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 </g>
 <g id="plot0">
@@ -50,52 +48,25 @@
 </g>
 </g>
 <defs>
-<pattern id="checker" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:5" /><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:4" /></pattern>
 <pattern id="vline" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:5" /></pattern>
-<pattern id="hline-sparse" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:2" /></pattern>
-<pattern id="checker" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:2" /><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:2" /></pattern>
 <pattern id="hline" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:5" /></pattern>
+<pattern id="hline-sparse" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:2" /></pattern>
+<pattern id="checker" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:5" /><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:4" /></pattern>
 <pattern id="vline-sparse" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:2" /></pattern>
+<pattern id="checker" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:2" /><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:2" /></pattern>
 </defs>
 
-                    <text x="1500" y="535" font-size="30.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (+)</text>
-                    <text x="1500" y="570" font-size="30.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (-)</text>
-                    <text x="1500" y="495" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (+)</text>
-                    <text x="1500" y="630" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (-)</text>
-                    <text x="1500" y="810" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
-                    <text x="1500" y="840" font-size="35.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">content</text>
-                    <text x="1500" y="1050" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
-                    <text x="1500" y="1080" font-size="35.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">skew</text>
+                    <text x="1500" y="535" font-size="30.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (+)</text>
+                    <text x="1500" y="570" font-size="30.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (-)</text>
+                    <text x="1500" y="495" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (+)</text>
+                    <text x="1500" y="630" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (-)</text>
+                    <text x="1500" y="810" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
+                    <text x="1500" y="840" font-size="35.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">content</text>
+                    <text x="1500" y="1050" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
+                    <text x="1500" y="1080" font-size="35.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">skew</text>
                 
-                        <text x="1500" y="440" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="{font_colour}">COG (+)</text>
-                        <text x="1500" y="685" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="{font_colour}">COG (-)</text>
-<text x="1500" y="1560" font-size="64" font-family="CMUBright-Roman" text-anchor="middle" fill="rgb(0, 0, 0)">4.04 kb</text>
-<text x="1500" y="1500" font-size="53.57142857142857" font-family="CMUBright-Roman" text-anchor="middle" fill="rgb(0, 0, 0)">Limnothrix_sp_HT2024_plasmid</text>
-</g>
-<g><text font-size="60px" x="54.86" y="3101.48">Genomic features</text>
-                        <line stroke = "rgb(0, 0, 0)" x1="150" y1="3117.56" x2="552.6800000000001" y2="3117.56" />
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(86, 180, 233)" x="74.50999999999999" y="3217.52" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3261.62" >positive CDS</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(0, 114, 178)" x="74.50999999999999" y="3298.19" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3343.16" >negative CDS</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(230, 159, 0)" x="74.50999999999999" y="3377.42" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3424.67">tRNA</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(204, 121, 167)" x="74.50999999999999" y="3458.09" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3506.21">rRNA</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(0, 158, 115)" x="74.50999999999999" y="3537.26" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3587.75">GC content</text>
-                        <text font-size="48px" x="156.5" y="3669.29">GC skew</text>
-                        <path stroke="rgb(0, 0, 0)" fill="none" d="M80 3626 m0 30 h9 l6 -15 15 30 6-15 9 0" />
-                                        <rect stroke = "#13110C" fill="rgb(48, 78, 157)" x="841.8499999999999" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3271.04">[M] </text><text font-size="60px" x="751.8499999999999" y="3184.04">Cellular Processes and Signaling</text><line stroke = "#13110C" x1="750.77" y1="3200.24" x2="1705.8500000000001" y2="3200.24" />
-                                        <rect stroke = "#13110C" fill="rgb(163, 55, 140)" x="841.8499999999999" y="3586.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3625.7">[K] </text>
-                                        <rect stroke = "#13110C" fill="rgb(83, 61, 145)" x="841.8499999999999" y="3664.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3703.7">[X] </text><text font-size="60px" x="751.8499999999999" y="3538.7">Information Storage and Processing</text><line stroke = "#13110C" x1="750.77" y1="3554.9" x2="1705.8500000000001" y2="3554.9" />
-                                        <rect stroke = "#13110C" fill="rgb(183, 130, 42)" x="2092.58" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3271.04">[I] </text><text font-size="60px" x="2002.58" y="3184.04">Metabolism</text><line stroke = "#13110C" x1="2001.5" y1="3200.24" x2="2956.58" y2="3200.24" />
-                                        <rect stroke = "#13110C" fill="rgb(105, 105, 105)" x="2092.58" y="3586.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3625.7">[R] </text>
-                                        <rect stroke = "#13110C" fill="rgb(153, 153, 153)" x="2092.58" y="3664.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3703.7">[S] </text><text font-size="60px" x="2002.58" y="3538.7">Poorly Characterized</text><line stroke = "#13110C" x1="2001.5" y1="3554.9" x2="2956.58" y2="3554.9" /><text font-size="60px" x="679.9399999999999" y="3101.48">Cluster of Ortologues Groups (COGs)</text><line stroke = "#13110C" x1="678.8599999999999" y1="3117.68" x2="2794.94" y2="3117.68" /></g>
-</svg>
+                        <text x="1500" y="440" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="{font_colour}">COG (+)</text>
+                        <text x="1500" y="685" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="{font_colour}">COG (-)</text>
+<text x="1500" y="1560" font-size="64" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="rgb(0, 0, 0)">4.04 kb</text>
+<text x="1500" y="1500" font-size="53.57142857142857" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="rgb(0, 0, 0)">Limnothrix_sp_HT2024_plasmid</text>
+                    </svg>

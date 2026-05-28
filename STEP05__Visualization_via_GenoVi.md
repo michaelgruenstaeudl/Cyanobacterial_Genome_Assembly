@@ -181,83 +181,70 @@ done
 
 #### Execution of GenoVi
 ```bash
+# Clean previous run
+rm -rf conf etc fonts circos.conf circos.svg circos.png genovi genoVi_chromosome genoVi_plasmid genovi-temp *__patched* circos.log circos.debug.log 2>/dev/null
+
 conda activate genovi
 
-GENOME="chromosome"
-#GENOME="plasmid"
-
-# Clean temporary files from previous run
-rm -rf conf etc fonts circos.conf circos.svg circos.png genovi-temp circos.log circos.debug.log 2>/dev/null
+#GENOME="chromosome"
+GENOME="plasmid"
 
 INPUT_GB="./input/Limnothrix_sp_HT2024_${GENOME}_corrected.gb"
 [ -f "$INPUT_GB" ] || INPUT_GB="./input/Limnothrix_sp_HT2024_${GENOME}_corrected_woTranslations.gb"
 [ -f "$INPUT_GB" ] || { echo "ERROR: no corrected input found for $GENOME"; exit 1; }
 
-# Minimal GenBank preflight
+# GenBank preflight
 sed -i 's/\r$//' "$INPUT_GB"
-if ! awk 'NF{last=$0} END{exit(last=="//"?0:1)}' "$INPUT_GB"; then
-    echo "WARN: missing final // in $INPUT_GB; appending terminator"
-    printf "\n//\n" >> "$INPUT_GB"
-fi
+awk 'NF{last=$0} END{exit(last=="//"?0:1)}' "$INPUT_GB" || printf "\n//\n" >> "$INPUT_GB"
 grep -q '^LOCUS' "$INPUT_GB" || { echo "ERROR: missing LOCUS in $INPUT_GB"; exit 1; }
 grep -q '^ORIGIN' "$INPUT_GB" || { echo "ERROR: missing ORIGIN in $INPUT_GB"; exit 1; }
 
 # Run GenoVi
 genovi -i "$INPUT_GB" -cs strong -s complete -t Limnothrix_sp_HT2024_${GENOME} -te --size -k -v verbose
 
-# Copy key outputs (if produced)
-[ -f ./genovi/genovi.svg ] && cp ./genovi/genovi.svg "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi.svg"
-[ -f ./genovi/genovi_COG_Histogram.png ] && cp ./genovi/genovi_COG_Histogram.png "Limnothrix_sp_HT2024_${GENOME}__COG_Histogram.png"
-[ -f ./genovi/genovi.svg ] || echo "GenoVi failed before final SVG creation; inspect circos.log and circos.debug.log"
+# Copy outputs
+[ -f ./genovi/genovi-contig_1.svg ] && cp ./genovi/genovi-contig_1.svg "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi.svg"
+[ -f ./genovi/genovi.svg ] && cp ./genovi/genovi.svg "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi__withLegend.svg"
 
-# Generate COG barchart from GenoVi CSV
-BARPLOT_OUT="Limnothrix_sp_HT2024_${GENOME}__COG_barplot.svg"
-CSV_IN=""
-for f in ./genovi/genovi_COG_Classification.csv ./genovi/genovi_COGclassification.csv; do
-    if [ -f "$f" ]; then
-        CSV_IN="$f"
-        break
-    fi
+# Post-process SVGs
+for SVG in "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi.svg" "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi__withLegend.svg"; do
+    [ -f "$SVG" ] && sed -i 's/font-family="CMUBright-Roman"/font-family="Arial, Helvetica, sans-serif"/g' "$SVG"
 done
-if [ -z "$CSV_IN" ]; then
-    echo "WARN: missing GenoVi COG classification CSV; skipped COG barplot generation."
-elif ! python3 plot_cog_barchart.py -i "$CSV_IN"; then
-    echo "WARN: plot_cog_barchart.py failed; no COG barplot SVG written."
-elif [ ! -f "${CSV_IN%.csv}_COG_barplot.svg" ]; then
-    echo "WARN: plot_cog_barchart.py finished but no SVG was generated."
-else
-    cp "${CSV_IN%.csv}_COG_barplot.svg" "$BARPLOT_OUT"
-    echo "INFO: wrote $BARPLOT_OUT"
-    if [ -f "Limnothrix_sp_HT2024_${GENOME}__COG_Histogram.png" ]; then
-        rm -f "Limnothrix_sp_HT2024_${GENOME}__COG_Histogram.png"
-        echo "INFO: removed Limnothrix_sp_HT2024_${GENOME}__COG_Histogram.png (replaced by barchart output)."
-    fi
+
+# Patch ticks.conf if present
+TICKS_CONF="conf/ticks.conf"
+if [ -f "$TICKS_CONF" ]; then
+    sed -i 's/^size[[:space:]]*=[[:space:]]*7p/size = 14p/; s/^size[[:space:]]*=[[:space:]]*10p/size = 20p/; s/^thickness[[:space:]]*=[[:space:]]*1p/thickness = 3p/; s/^label_size[[:space:]]*=[[:space:]]*[0-9]\+p/label_size = 30p/' "$TICKS_CONF"
+    grep -q '^font_bold[[:space:]]*=[[:space:]]*yes' "$TICKS_CONF" || sed -i '/^label_size[[:space:]]*=[[:space:]]*30p/a font_bold = yes' "$TICKS_CONF"
 fi
 
-# Archive run artifacts (skip paths that do not exist)
+# Rerun Circos if needed
+if [ -f circos.conf ]; then
+    circos -conf circos.conf -outputdir . -outputfile circos__patched.svg > circos__patched.log 2>&1
+    cp circos__patched.svg "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi__patched.svg"
+    for SVG in "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi__patched.svg" "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi__withLegend.svg"; do
+        sed -i 's/font-family="[^"]\+"/font-family="Arial, Helvetica, sans-serif"/g' "$SVG"
+    done
+    rm -f circos__patched.*
+fi
+
+# Generate COG barchart
+BARPLOT_OUT="Limnothrix_sp_HT2024_${GENOME}__COG_barplot.svg"
+for CSV in ./genovi/genovi_COG_Classification.csv ./genovi/genovi_COGclassification.csv; do
+    [ -f "$CSV" ] && python3 plot_cog_barchart.py -i "$CSV" && \
+    [ -f "${CSV%.csv}_COG_barplot.svg" ] && cp "${CSV%.csv}_COG_barplot.svg" "$BARPLOT_OUT" && \
+    echo "INFO: wrote $BARPLOT_OUT" && \
+    [ -f "Limnothrix_sp_HT2024_${GENOME}__COG_Histogram.png" ] && rm -f "Limnothrix_sp_HT2024_${GENOME}__COG_Histogram.png" && \
+    break
+done
+
+# Archive artifacts
 target_dir="genoVi_${GENOME}"
 mkdir -p "$target_dir"
-to_archive=(circos.conf circos.debug.log circos.log circos.svg conf etc fonts genovi genovi-temp)
-for p in "${to_archive[@]}"; do
-    if [ -e "$p" ]; then
-        mv "$p" "$target_dir"/
-    fi
+for p in circos.conf circos.debug.log circos.log circos.svg conf etc fonts genovi genovi-temp; do
+    [ -e "$p" ] && mv "$p" "$target_dir"/
 done
+[ -f "${target_dir}.tar.gz" ] && rm -f "${target_dir}.tar.gz"
 tar czf "${target_dir}.tar.gz" "$target_dir"
 echo "INFO: archived run to ${target_dir}.tar.gz"
 ```
-
-#### Vertical concatenation of GenoVi and COG barchart SVGs
-
-```bash
-# Concatenate both SVGs into one vertical panel (GenoVi on top)
-# Writes both svg and png
-
-GENOME="chromosome"
-#GENOME="plasmid"
-
-python3 concat_svgs_vertical.py \
-    -i "Limnothrix_sp_HT2024_${GENOME}__output_from_GenoVi.svg" "Limnothrix_sp_HT2024_${GENOME}__COG_barplot.svg" \
-    -o "Limnothrix_sp_HT2024_${GENOME}__combined_vertical"
-```
-

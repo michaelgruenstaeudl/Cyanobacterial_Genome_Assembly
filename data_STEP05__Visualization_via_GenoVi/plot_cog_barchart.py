@@ -9,6 +9,18 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# Force all fonts to Arial, Helvetica, or sans-serif
+import matplotlib as mpl
+mpl.rcParams['font.family'] = ['sans-serif']
+mpl.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Liberation Sans', 'Helvetica', 'Arial', 'sans-serif']
+mpl.rcParams['axes.unicode_minus'] = False
+mpl.rcParams['axes.titlesize'] = 14
+mpl.rcParams['axes.labelsize'] = 12
+mpl.rcParams['xtick.labelsize'] = 8
+mpl.rcParams['ytick.labelsize'] = 10
+mpl.rcParams['legend.fontsize'] = 10
+mpl.rcParams['svg.fonttype'] = 'none'  # Prefer text, not paths
+
 
 COG_NAMES = {
     "D": "Cell cycle control, cell division, chromosome partitioning",
@@ -121,10 +133,16 @@ def main() -> None:
     fig, ax = plt.subplots(figsize=(14, 6))
     bars = ax.bar(df["Label"], df["Count"], color=df["Color"], width=0.8)
 
-    ax.set_title("COG Category", fontsize=14)
+    # Force legend font to sans-serif
+    legend = ax.legend(["COG Category"], loc="upper right", frameon=False, prop={"family": "sans-serif", "size": 14})
+    for text in legend.get_texts():
+        text.set_fontfamily("sans-serif")
+
+    # Explicitly set fontfamily for all text (use 'sans-serif' for portability)
+    ax.set_title("COG Category", fontsize=14, fontfamily="sans-serif")
     ax.set_xticks(range(len(df)))
     ax.set_xticklabels(
-        df["Label"], rotation=65, ha="right", va="top", rotation_mode="anchor"
+        df["Label"], rotation=65, ha="right", va="top", rotation_mode="anchor", fontfamily="sans-serif"
     )
     ax.tick_params(axis="x", labelsize=8, pad=10)
     ax.margins(x=0.02)
@@ -142,6 +160,7 @@ def main() -> None:
             ha="center",
             va="bottom",
             fontsize=8,
+            fontfamily="sans-serif"
         )
 
     plt.tight_layout()

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg viewBox="0 0 3000 4000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
-<rect x="-1000" y="-1000" width="5000px" height="5000px" style="fill:none;"/><g transform="translate(0.0,0) scale(1.0)">
+<svg width="3000px" height="3000px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="bg">
-<rect x="-1000" y="-1000" width="5000px" height="5000px" style="fill:none;"/>
+<rect x="0" y="0" width="3000px" height="3000px" style="fill:none;"/>
 </g>
 <g id="ideograms">
 <g id="highlighttrack_0">
@@ -7394,61 +7392,61 @@
 <path d="M1681.464,354.282 A1160.000,1160.000 40.000 1,1 1335.696,351.695 L1330.030,312.098 A1200.000,1200.000 0.000 1,0 1687.721,314.774 Z" style="stroke-width:2.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:rgb(0,0,0);" />
 <path d="M1681.464,354.282 A1160.000,1160.000 40.000 1,1 1335.696,351.695 L1330.030,312.098 A1200.000,1200.000 0.000 1,0 1687.721,314.774 Z" style="stroke-linecap:round;fill:rgb(255,255,255);" />
 <line x1='1687.7' y1='314.8' x2='1689.3' y2='304.9' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="1698.5" y="301.3" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(279.0,1698.5,301.3)" >0 Mb</text>
+<text x="1698.5" y="301.3" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(279.0,1698.5,301.3)" >0 Mb</text>
 <line x1='1842.0' y1='349.8' x2='1844.0' y2='343.1' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1990.3' y1='404.7' x2='1993.2' y2='398.3' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2130.1' y1='478.7' x2='2133.8' y2='472.8' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2258.9' y1='570.5' x2='2263.4' y2='565.1' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2374.6' y1='678.4' x2='2381.9' y2='671.5' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="2391.3" y="674.3" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(316.8,2391.3,674.3)" >0.5 Mb</text>
+<text x="2391.3" y="674.3" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(316.8,2391.3,674.3)" >0.5 Mb</text>
 <line x1='2475.1' y1='800.6' x2='2480.8' y2='796.5' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2558.6' y1='934.9' x2='2564.8' y2='931.6' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2623.7' y1='1079.0' x2='2630.3' y2='1076.6' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2669.3' y1='1230.5' x2='2676.2' y2='1228.9' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2694.6' y1='1386.6' x2='2704.6' y2='1385.7' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="2710.3" y="1393.7" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(354.6,2710.3,1393.7)" >1 Mb</text>
+<text x="2710.3" y="1393.7" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(354.6,2710.3,1393.7)" >1 Mb</text>
 <line x1='2699.2' y1='1544.7' x2='2706.2' y2='1545.0' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2682.9' y1='1702.1' x2='2689.8' y2='1703.3' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2646.0' y1='1855.9' x2='2652.7' y2='1858.0' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2589.2' y1='2003.5' x2='2595.6' y2='2006.5' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2513.5' y1='2142.4' x2='2522.0' y2='2147.8' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="2521.6" y="2157.6" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(32.4,2521.6,2157.6)" >1.5 Mb</text>
+<text x="2521.6" y="2157.6" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(32.4,2521.6,2157.6)" >1.5 Mb</text>
 <line x1='2420.2' y1='2270.2' x2='2425.6' y2='2274.7' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2311.0' y1='2384.5' x2='2315.7' y2='2389.7' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2187.6' y1='2483.5' x2='2191.6' y2='2489.2' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='2052.2' y1='2565.4' x2='2055.5' y2='2571.6' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1907.3' y1='2628.8' x2='1910.7' y2='2638.2' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="1904.4" y="2645.7" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(70.2,1904.4,2645.7)" >2 Mb</text>
+<text x="1904.4" y="2645.7" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:start;fill:rgb(0,0,0);" transform="rotate(70.2,1904.4,2645.7)" >2 Mb</text>
 <line x1='1755.3' y1='2672.5' x2='1756.8' y2='2679.4' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1598.9' y1='2695.9' x2='1599.5' y2='2702.9' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1440.7' y1='2698.5' x2='1440.4' y2='2705.5' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1283.6' y1='2680.3' x2='1282.3' y2='2687.2' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1130.2' y1='2641.6' x2='1127.1' y2='2651.1' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="1133.7" y="2658.5" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(-72.1,1133.7,2658.5)" >2.5 Mb</text>
+<text x="1133.7" y="2658.5" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(-72.1,1133.7,2658.5)" >2.5 Mb</text>
 <line x1='983.3' y1='2583.1' x2='980.3' y2='2589.4' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='845.3' y1='2505.7' x2='841.5' y2='2511.6' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='718.7' y1='2410.8' x2='714.2' y2='2416.2' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='605.7' y1='2300.2' x2='600.5' y2='2304.8' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='508.2' y1='2175.6' x2='500.0' y2='2181.2' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="500.7" y="2191.0" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(-34.3,500.7,2191.0)" >3 Mb</text>
+<text x="500.7" y="2191.0" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(-34.3,500.7,2191.0)" >3 Mb</text>
 <line x1='428.0' y1='2039.3' x2='421.8' y2='2042.4' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='366.4' y1='1893.6' x2='359.8' y2='1895.9' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='324.5' y1='1741.1' x2='317.6' y2='1742.5' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='303.0' y1='1584.4' x2='296.0' y2='1584.9' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='302.3' y1='1426.2' x2='292.3' y2='1425.6' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="286.8" y="1433.8" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(3.5,286.8,1433.8)" >3.5 Mb</text>
+<text x="286.8" y="1433.8" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(3.5,286.8,1433.8)" >3.5 Mb</text>
 <line x1='322.4' y1='1269.3' x2='315.5' y2='1268.0' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='363.0' y1='1116.4' x2='356.3' y2='1114.2' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='423.3' y1='970.2' x2='417.0' y2='967.1' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='502.3' y1='833.2' x2='496.5' y2='829.3' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='598.7' y1='707.8' x2='591.2' y2='701.1' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="581.8" y="704.3" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(41.3,581.8,704.3)" >4 Mb</text>
+<text x="581.8" y="704.3" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(41.3,581.8,704.3)" >4 Mb</text>
 <line x1='710.7' y1='596.1' x2='706.1' y2='590.8' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='836.5' y1='500.1' x2='832.6' y2='494.3' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='973.8' y1='421.5' x2='970.7' y2='415.3' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1120.2' y1='361.7' x2='1118.0' y2='355.1' style="stroke-width:1.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 <line x1='1273.2' y1='321.6' x2='1271.3' y2='311.8' style="stroke-width:3.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
-<text x="1262.0" y="308.5" font-size="26.0px" font-family="CMUBright-Roman" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(79.1,1262.0,308.5)" >4.5 Mb</text>
+<text x="1262.0" y="308.5" font-size="26.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:end;fill:rgb(0,0,0);" transform="rotate(79.1,1262.0,308.5)" >4.5 Mb</text>
 <path d="M1681.464,354.282 A1160.000,1160.000 40.000 1,1 1335.696,351.695 L1330.030,312.098 A1200.000,1200.000 0.000 1,0 1687.721,314.774 Z" style="stroke-width:2.0;stroke:rgb(0,0,0);stroke-linecap:round;fill:none;" />
 </g>
 <g id="plot0">
@@ -12390,86 +12388,25 @@
 <line x1='1431.0' y1='1034.7' x2='1426.5' y2='989.4' style="stroke-width:0.5;stroke:rgb(163,163,217);stroke-linecap:round;fill:none;" />
 </g>
 <defs>
-<pattern id="vline-sparse" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:2" /></pattern>
-<pattern id="hline-sparse" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:2" /></pattern>
-<pattern id="checker" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:5" /><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:4" /></pattern>
-<pattern id="hline" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:5" /></pattern>
 <pattern id="vline" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:5" /></pattern>
+<pattern id="checker" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:5" /><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:4" /></pattern>
+<pattern id="vline-sparse" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:2" /></pattern>
 <pattern id="checker" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:2" /><line x1="0" y1="0" x2="0" y2="10" style="stroke:black;stroke-width:2" /></pattern>
+<pattern id="hline" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:5" /></pattern>
+<pattern id="hline-sparse" width="10" height="10" patternTransform="rotate(0 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="0" style="stroke:black;stroke-width:2" /></pattern>
 </defs>
 
-                    <text x="1500" y="535" font-size="30.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (+)</text>
-                    <text x="1500" y="570" font-size="30.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (-)</text>
-                    <text x="1500" y="495" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (+)</text>
-                    <text x="1500" y="630" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (-)</text>
-                    <text x="1500" y="810" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
-                    <text x="1500" y="840" font-size="35.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">content</text>
-                    <text x="1500" y="1050" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
-                    <text x="1500" y="1080" font-size="35.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="rgb(0, 0, 0)">skew</text>
+                    <text x="1500" y="535" font-size="30.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (+)</text>
+                    <text x="1500" y="570" font-size="30.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">RNA (-)</text>
+                    <text x="1500" y="495" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (+)</text>
+                    <text x="1500" y="630" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">CDS (-)</text>
+                    <text x="1500" y="810" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
+                    <text x="1500" y="840" font-size="35.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">content</text>
+                    <text x="1500" y="1050" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">GC</text>
+                    <text x="1500" y="1080" font-size="35.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="rgb(0, 0, 0)">skew</text>
                 
-                        <text x="1500" y="440" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="{font_colour}">COG (+)</text>
-                        <text x="1500" y="685" font-size="50.0px" font-family="CMUBright-Roman" style="text-anchor:middle;" fill="{font_colour}">COG (-)</text>
-<text x="1500" y="1560" font-size="64" font-family="CMUBright-Roman" text-anchor="middle" fill="rgb(0, 0, 0)">4.54 Mb</text>
-<text x="1500" y="1500" font-size="48.38709677419355" font-family="CMUBright-Roman" text-anchor="middle" fill="rgb(0, 0, 0)">Limnothrix_sp_HT2024_chromosome</text>
-</g>
-<g><text font-size="60px" x="54.86" y="3101.48">Genomic features</text>
-                        <line stroke = "rgb(0, 0, 0)" x1="150" y1="3117.56" x2="552.6800000000001" y2="3117.56" />
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(86, 180, 233)" x="74.50999999999999" y="3217.52" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3261.62" >positive CDS</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(0, 114, 178)" x="74.50999999999999" y="3298.19" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3343.16" >negative CDS</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(230, 159, 0)" x="74.50999999999999" y="3377.42" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3424.67">tRNA</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(204, 121, 167)" x="74.50999999999999" y="3458.09" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3506.21">rRNA</text>
-                        <rect stroke = "rgb(0, 0, 0)" fill = "rgb(0, 158, 115)" x="74.50999999999999" y="3537.26" width="55.980000000000004" height="55.980000000000004" />
-                        <text font-size="48px" x="156.5" y="3587.75">GC content</text>
-                        <text font-size="48px" x="156.5" y="3669.29">GC skew</text>
-                        <path stroke="rgb(0, 0, 0)" fill="none" d="M80 3626 m0 30 h9 l6 -15 15 30 6-15 9 0" />
-                                        <rect stroke = "#13110C" fill="rgb(105, 123, 183)" x="841.8499999999999" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3271.04">[D] </text>
-                                        <rect stroke = "#13110C" fill="rgb(48, 78, 157)" x="841.8499999999999" y="3310.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3349.04">[M] </text>
-                                        <rect stroke = "#13110C" fill="rgb(106, 154, 181)" x="841.8499999999999" y="3388.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3427.04">[N] </text>
-                                        <rect stroke = "#13110C" fill="rgb(29, 130, 176)" x="1102.85" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="1189.85" y="3271.04">[O] </text>
-                                        <rect stroke = "#13110C" fill="rgb(76, 169, 181)" x="1102.85" y="3310.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="1189.85" y="3349.04">[T] </text>
-                                        <rect stroke = "#13110C" fill="rgb(28, 104, 117)" x="1102.85" y="3388.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="1189.85" y="3427.04">[U] </text>
-                                        <rect stroke = "#13110C" fill="rgb(109, 191, 164)" x="1363.85" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="1450.85" y="3271.04">[V] </text>
-                                        <rect stroke = "#13110C" fill="rgb(26, 147, 111)" x="1363.85" y="3310.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="1450.85" y="3349.04">[W] </text>
-                                        <rect stroke = "#13110C" fill="rgb(28, 118, 51)" x="1363.85" y="3388.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="1450.85" y="3427.04">[Z] </text><text font-size="60px" x="751.8499999999999" y="3184.04">Cellular Processes and Signaling</text><line stroke = "#13110C" x1="750.77" y1="3200.24" x2="1705.8500000000001" y2="3200.24" />
-                                        <rect stroke = "#13110C" fill="rgb(173, 91, 159)" x="841.8499999999999" y="3586.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3625.7">[J] </text>
-                                        <rect stroke = "#13110C" fill="rgb(163, 55, 140)" x="841.8499999999999" y="3664.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3703.7">[K] </text>
-                                        <rect stroke = "#13110C" fill="rgb(143, 118, 180)" x="841.8499999999999" y="3742.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="928.8499999999999" y="3781.7">[L] </text>
-                                        <rect stroke = "#13110C" fill="rgb(83, 61, 145)" x="1102.85" y="3586.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="1189.85" y="3625.7">[X] </text><text font-size="60px" x="751.8499999999999" y="3538.7">Information Storage and Processing</text><line stroke = "#13110C" x1="750.77" y1="3554.9" x2="1705.8500000000001" y2="3554.9" />
-                                        <rect stroke = "#13110C" fill="rgb(181, 210, 123)" x="2092.58" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3271.04">[C] </text>
-                                        <rect stroke = "#13110C" fill="rgb(131, 173, 41)" x="2092.58" y="3310.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3349.04">[E] </text>
-                                        <rect stroke = "#13110C" fill="rgb(188, 184, 104)" x="2092.58" y="3388.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3427.04">[F] </text>
-                                        <rect stroke = "#13110C" fill="rgb(152, 143, 28)" x="2353.58" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2440.58" y="3271.04">[G] </text>
-                                        <rect stroke = "#13110C" fill="rgb(237, 194, 138)" x="2353.58" y="3310.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2440.58" y="3349.04">[H] </text>
-                                        <rect stroke = "#13110C" fill="rgb(183, 130, 42)" x="2353.58" y="3388.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2440.58" y="3427.04">[I] </text>
-                                        <rect stroke = "#13110C" fill="rgb(221, 137, 80)" x="2614.58" y="3232.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2701.58" y="3271.04">[P] </text>
-                                        <rect stroke = "#13110C" fill="rgb(198, 95, 23)" x="2614.58" y="3310.04" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2701.58" y="3349.04">[Q] </text><text font-size="60px" x="2002.58" y="3184.04">Metabolism</text><line stroke = "#13110C" x1="2001.5" y1="3200.24" x2="2956.58" y2="3200.24" />
-                                        <rect stroke = "#13110C" fill="rgb(105, 105, 105)" x="2092.58" y="3586.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3625.7">[R] </text>
-                                        <rect stroke = "#13110C" fill="rgb(153, 153, 153)" x="2092.58" y="3664.7" width="55.980000000000004" height="55.980000000000004"/>
-                                        <text font-size="48px" class="cls-2" x="2179.58" y="3703.7">[S] </text><text font-size="60px" x="2002.58" y="3538.7">Poorly Characterized</text><line stroke = "#13110C" x1="2001.5" y1="3554.9" x2="2956.58" y2="3554.9" /><text font-size="60px" x="679.9399999999999" y="3101.48">Cluster of Ortologues Groups (COGs)</text><line stroke = "#13110C" x1="678.8599999999999" y1="3117.68" x2="2794.94" y2="3117.68" /></g>
-</svg>
+                        <text x="1500" y="440" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="{font_colour}">COG (+)</text>
+                        <text x="1500" y="685" font-size="50.0px" font-family="Arial, Helvetica, sans-serif" style="text-anchor:middle;" fill="{font_colour}">COG (-)</text>
+<text x="1500" y="1560" font-size="64" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="rgb(0, 0, 0)">4.54 Mb</text>
+<text x="1500" y="1500" font-size="48.38709677419355" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="rgb(0, 0, 0)">Limnothrix_sp_HT2024_chromosome</text>
+                    </svg>
