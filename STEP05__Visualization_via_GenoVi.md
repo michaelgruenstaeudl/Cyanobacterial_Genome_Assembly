@@ -182,12 +182,12 @@ done
 #### Execution of GenoVi
 ```bash
 # Clean previous run
-rm -rf conf etc fonts circos.conf circos.svg circos.png genovi genoVi_chromosome genoVi_plasmid genovi-temp *__patched* circos.log circos.debug.log 2>/dev/null
+rm -rf conf etc fonts circos.conf circos.svg circos.png genovi genoVi_chromosome genoVi_plasmid genovi-temp circos__patched* circos.log circos.debug.log 2>/dev/null
 
 conda activate genovi
 
-#GENOME="chromosome"
-GENOME="plasmid"
+GENOME="chromosome"
+#GENOME="plasmid"
 
 INPUT_GB="./input/Limnothrix_sp_HT2024_${GENOME}_corrected.gb"
 [ -f "$INPUT_GB" ] || INPUT_GB="./input/Limnothrix_sp_HT2024_${GENOME}_corrected_woTranslations.gb"
