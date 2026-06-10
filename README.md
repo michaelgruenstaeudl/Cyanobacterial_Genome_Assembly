@@ -167,30 +167,19 @@ grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/l
 
 ---
 
-### 08. Synteny and Structural Analysis
+### 08. Whole-Genome Alignment
+- Show dotplots produced by MUMmer4
+
+- [Visualization of MUMmer4 results as dotplots](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08a__MUMmer4_dotplots.md)
+
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP08a__GenomicInversions_MUMmer4/Limnothrix_sp_BLA16_vs_BacterialChr__MUMmer4.dotplot.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+
+
 - Show inversions within the assembly using Circos
 
 - [Show synteny and collinearity between *Limnothrix* B-16 and the assembly using Circos](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08c__Circos_collinearity_visualization.md)
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP08c__GenomicInversions_Circos/process_and_output/circos/circos.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
-
----
-
-### 09. Whole-Genome Alignment
-- [Visualization of MUMmer4 results as dotplots](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08a__MUMmer4_dotplots.md)
-
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP08a__GenomicInversions_MUMmer4/Limnothrix_sp_BLA16_vs_BactopiaAssembly.dotplot.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
-
-- [Inference of inversions](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP09b__Inversions.md)
-
-```text
-Limnothrix_sp_BL_A_16_CP166615	82994	113322	30329
-Limnothrix_sp_BL_A_16_CP166615	592628	736045	143418
-Limnothrix_sp_BL_A_16_CP166615	1756173	1817785	61613
-Limnothrix_sp_BL_A_16_CP166615	2674925	2733309	58385
-Limnothrix_sp_BL_A_16_CP166615	3085082	3131342	46261
-Limnothrix_sp_BL_A_16_CP166615	4038055	4191007	152953
-```
 
 ---
 
