@@ -84,3 +84,60 @@ show-coords -rclTH "${PFX}.filt.delta" \
 ```bash
 python SCRIPT_MUMmer4_plot_coords_dotplot.py "${PFX}.coords.tsv" "${PFX}.dotplot"
 ```
+
+---
+
+#### Calculate similarity indices before and after inversion correction
+```bash
+# Input files
+REF="./input/Limnothrix_sp_BL_A_16_CP166615.fasta"
+QRY="./input/FinalAssembly_bactGenome_corrected.fasta"
+INV="six_major_inversions_ref.csv"
+OUTDIR="sequence_similarity_with_without_inversions"
+LOG="Limnothrix_sp_BLA16_vs_BacterialChr__orientation_identity_summary.txt"
+
+mkdir -p "${OUTDIR}"
+
+# Create inversion-corrected reference
+python SCRIPT_reverse_ref_inversions.py \
+    "${REF}" \
+    "${INV}" \
+    "${OUTDIR}/Limnothrix_sp_BL_A_16_CP166615_inversions_corrected.fasta"
+
+REF_CORRECTED="${OUTDIR}/Limnothrix_sp_BL_A_16_CP166615_inversions_corrected.fasta"
+
+# Whole-genome alignment of the original chromosomes
+nucmer --maxmatch \
+    -p "${OUTDIR}/original_orientation" \
+    "${REF}" \
+    "${QRY}"
+
+delta-filter -r -q -l 1000 \
+    "${OUTDIR}/original_orientation.delta" \
+    > "${OUTDIR}/original_orientation.filt.delta"
+
+show-coords -rclTH \
+    "${OUTDIR}/original_orientation.filt.delta" \
+    > "${OUTDIR}/original_orientation.coords.tsv"
+
+# Whole-genome alignment after computational correction of the inversion regions
+nucmer --maxmatch \
+    -p "${OUTDIR}/inversion_corrected" \
+    "${REF_CORRECTED}" \
+    "${QRY}"
+
+delta-filter -r -q -l 1000 \
+    "${OUTDIR}/inversion_corrected.delta" \
+    > "${OUTDIR}/inversion_corrected.filt.delta"
+
+show-coords -rclTH \
+    "${OUTDIR}/inversion_corrected.filt.delta" \
+    > "${OUTDIR}/inversion_corrected.coords.tsv"
+
+python SCRIPT_summarize_mummer_identity.py \
+    "${REF}" \
+    "${QRY}" \
+    "${OUTDIR}/original_orientation.coords.tsv" \
+    "${OUTDIR}/inversion_corrected.coords.tsv" \
+| tee "${LOG}"
+```

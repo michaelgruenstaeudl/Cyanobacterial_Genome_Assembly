@@ -1,0 +1,29 @@
+reference_chromosome_fasta: ./input/Limnothrix_sp_BL_A_16_CP166615.fasta
+input_chromosome_fasta: ./input/FinalAssembly_bactGenome_corrected.fasta
+======================================================================
+Input chromosome length comparison
+======================================================================
+Reference chromosome length: 4539749 bp
+Query chromosome length:     4536413 bp
+Length difference:           -3336 bp
+
+======================================================================
+Original chromosome orientation
+======================================================================
+Total aligned reference bases: 4211496 bp
+Forward-orientation aligned bases: 3736465 bp (88.72%)
+Reverse-orientation aligned bases: 475031 bp (11.28%)
+
+======================================================================
+Inversion-corrected chromosome orientation
+======================================================================
+Total aligned reference bases: 4212224 bp
+Forward-orientation aligned bases: 4212224 bp (100.00%)
+Reverse-orientation aligned bases: 0 bp (0.00%)
+
+======================================================================
+Summary values after inversion correction
+======================================================================
+Alignment-length-weighted nucleotide identity: 98.4074%
+Alignment-length-weighted nucleotide divergence: 1.5926%
+Reference-aligned fraction: 92.7854%
